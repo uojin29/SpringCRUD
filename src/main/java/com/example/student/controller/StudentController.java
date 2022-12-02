@@ -10,11 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/list")
 public class StudentController {
     @Autowired
     StudentServiceImpl studentService;
-
+    @RequestMapping(value = "/")
+    public String index(){
+        System.out.println("request index");
+        return "index";
+    }
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String Studentlist(Model model){
         model.addAttribute("list", studentService.getStudentList());
@@ -22,11 +25,12 @@ public class StudentController {
     }
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addPost(){
-        return "addpostform";
+        return "add";
     }
     @RequestMapping(value = "/addok", method = RequestMethod.POST)
     public String addPostOK(StudentVO vo){
-        if(studentService.insertStudent(vo) == 0){
+        int i = studentService.insertStudent(vo);
+        if(i == 0){
             System.out.println("데이터 추가 실패");
         }
         else System.out.println("데이터 추가 성공");
@@ -40,7 +44,8 @@ public class StudentController {
     }
     @RequestMapping(value = "/editok", method = RequestMethod.POST)
     public String editPostOK(StudentVO vo){
-        if(studentService.updateStudent(vo) == 0){
+        int i = studentService.updateStudent(vo);
+        if(i == 0){
             System.out.println("데이터 추가 실패");
         }
         else System.out.println("데이터 추가 성공");
@@ -48,7 +53,8 @@ public class StudentController {
     }
     @RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
     public String deletePostOK(@PathVariable("id") int id){
-        if(studentService.deleteStudent(id) == 0){
+        int i = studentService.deleteStudent(id);
+        if(i == 0){
             System.out.println("데이터 추가 실패");
         }
         else System.out.println("데이터 추가 성공");

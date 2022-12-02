@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class StudentDAO {
     @Autowired
-    private JdbcTemplate template;
+    JdbcTemplate template;
     public void setTemplate(JdbcTemplate template){
         this.template = template;
     }
@@ -26,32 +26,33 @@ public class StudentDAO {
     private final String STUDENT_LIST = "select * from STUDENT order by seq desc";
 
     public int insertStudent(StudentVO vo){
-        return template.update(STUDENT_INSERT, new Object[]{vo.getUserID(), vo.getUserName(), vo.getUserPWD(), vo.getUserSemester()});
+        return template.update(STUDENT_INSERT, new Object[]{vo.getUserID(), vo.getUserName(), vo.getUserPW(), vo.getUserSemester()});
     }
     public int deleteStudent(int id){
         return template.update(STUDENT_DELETE, new Object[]{id});
     }
     public int updateStudent(StudentVO vo){
-        return template.update(STUDENT_INSERT, new Object[]{vo.getUserID(), vo.getUserName(), vo.getUserPWD(), vo.getUserSemester(), vo.getSeq()});
+        return template.update(STUDENT_UPDATE,
+                new Object[]{vo.getUserID(), vo.getUserName(), vo.getUserPW(), vo.getUserSemester(), vo.getSeq()});
     }
 
    public StudentVO getStudent(int seq){
-        return template.queryForObject(STUDENT_GET, new StudentRowMapper());
+        return template.queryForObject(STUDENT_GET,
+                new Object[]{seq},
+                new BeanPropertyRowMapper<StudentVO>(StudentVO.class));
    }
-   public List<StudentVO> getStudentList(){
-        return template.query(STUDENT_LIST, new StudentRowMapper());
-   }
-
-   class StudentRowMapper implements RowMapper<StudentVO>{
-       @Override
-       public StudentVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-           StudentVO vo = new StudentVO();
-           vo.setSeq(rs.getInt("seq"));
-           vo.setUserID(rs.getString("userID"));
-           vo.setUserName(rs.getString("userName"));
-           vo.setUserPWD(rs.getInt("uwerPWD"));
-           vo.setUserSemester(rs.getInt("userSemester"));
-           return vo;
-       }
-   }
+    public List<StudentVO> getStudentList(){
+        return template.query(STUDENT_LIST, new RowMapper<StudentVO>() {
+            @Override
+            public StudentVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                StudentVO data = new StudentVO();
+                data.setSeq(rs.getInt("seq"));
+                data.setUserID(rs.getString("userID"));
+                data.setUserName(rs.getString("userName"));
+                data.setUserPW(rs.getString("userPW"));
+                data.setUserSemester(rs.getInt("userSemester"));
+                return data;
+            }
+        });
+    }
 }

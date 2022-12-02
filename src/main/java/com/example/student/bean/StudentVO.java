@@ -4,15 +4,14 @@ public class StudentVO {
     private int seq;
     private String userID;
     private String userName;
-    private int userPWD;
+    private String userPW;
     private int userSemester;
-    private int cnt;
 
     public int getSeq() {
         return seq;
     }
 
-    public void setSeq(int ID) {
+    public void setSeq(int seq) {
         this.seq = seq;
     }
 
@@ -32,12 +31,12 @@ public class StudentVO {
         this.userName = userName;
     }
 
-    public int getUserPWD() {
-        return userPWD;
+    public String getUserPW() {
+        return userPW;
     }
 
-    public void setUserPWD(int userPWD) {
-        this.userPWD = userPWD;
+    public void setUserPW(String userPW) {
+        this.userPW = userPW;
     }
 
     public int getUserSemester() {
@@ -46,13 +45,5 @@ public class StudentVO {
 
     public void setUserSemester(int userSemester) {
         this.userSemester = userSemester;
-    }
-
-    public int getCnt() {
-        return cnt;
-    }
-
-    public void setCnt(int cnt) {
-        this.cnt = cnt;
     }
 }
