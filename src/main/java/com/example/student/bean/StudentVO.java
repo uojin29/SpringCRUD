@@ -1,19 +1,19 @@
-package com.example.review.student;
+package com.example.student.bean;
 
 public class StudentVO {
-    private int ID;
+    private int seq;
     private String userID;
     private String userName;
     private int userPWD;
     private int userSemester;
     private int cnt;
 
-    public int getID() {
-        return ID;
+    public int getSeq() {
+        return seq;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setSeq(int ID) {
+        this.seq = seq;
     }
 
     public String getUserID() {
