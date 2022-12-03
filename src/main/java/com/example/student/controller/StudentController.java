@@ -14,9 +14,9 @@ public class StudentController {
     @Autowired
     StudentServiceImpl studentService;
     @RequestMapping(value = "/")
-    public String index(){
-        System.out.println("request index");
-        return "index";
+    public String index(Model model){
+        model.addAttribute("list", studentService.getStudentList());
+        return "list";
     }
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String Studentlist(Model model){

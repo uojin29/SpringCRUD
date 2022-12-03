@@ -20,7 +20,7 @@ public class StudentDAO {
     }
 
     private final String STUDENT_INSERT = "insert into STUDENT (userID, userName, userPW, userSemester) values (?, ?, ?, ?)";
-    private final String STUDENT_UPDATE = "update STUDENT set userID=?, userName=?, userPW=?, userSemester=?, where seq=?";
+    private final String STUDENT_UPDATE = "update STUDENT set userID=?, userName=?, userPW=?, userSemester=? where seq=?";
     private final String STUDENT_DELETE = "delete from STUDENT  where seq=?";
     private final String STUDENT_GET = "select * from STUDENT  where seq=?";
     private final String STUDENT_LIST = "select * from STUDENT order by seq desc";
@@ -32,8 +32,7 @@ public class StudentDAO {
         return template.update(STUDENT_DELETE, new Object[]{id});
     }
     public int updateStudent(StudentVO vo){
-        return template.update(STUDENT_UPDATE,
-                new Object[]{vo.getUserID(), vo.getUserName(), vo.getUserPW(), vo.getUserSemester(), vo.getSeq()});
+        return template.update(STUDENT_UPDATE,new Object[]{vo.getUserID(), vo.getUserName(), vo.getUserPW(), vo.getUserSemester(), vo.getSeq()});
     }
 
    public StudentVO getStudent(int seq){

@@ -16,7 +16,10 @@
         <tr><td>Password:</td><td><input type="text" name="userPW"/></td></tr>
         <tr><td>Semester:</td><td><input type="int" name="userSemester"/></td></tr>
     </table>
-    <tr><td><a href="list.jsp">View All Records</a></td><td align="right"><input type="submit" value="ADD"/></td></tr>
+    <tr><td><a href="list">목록 보기</a></td>
+        <br>
+        <td align="right"><input type="submit" value="ADD"/></td>
+    </tr>
 </form>
 
 </body>
