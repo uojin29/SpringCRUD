@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Student">
+    <insert id="insertStudent">
+        insert into STUDENT (userID, userName, userPW, userSemester)
+        values (#{userID} , #{userName} , #{userPW} , #{userSemester})
+    </insert>
+    <update id="updateStudent">
+        update STUDENT
+        set userID=#{userID}, userName=#{userName}, userPW=#{userPW}, userSemester=#{userSemester}
+        where seq=#{seq}
+    </update>
+    <delete id="deleteStudent">
+        delete from STUDENT
+        where seq=#{seq}
+    </delete>
+    <select id="getStudent" resultType="student">
+        select * from STUDENT
+        where seq=#{seq}
+    </select>
+    <select id="getStudentList" resultType="student">
+        select * from STUDENT order by seq desc
+    </select>
+</mapper>
