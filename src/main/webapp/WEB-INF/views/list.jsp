@@ -39,19 +39,17 @@
 <h1>자유게시판</h1>
 <table id="list" width="90%">
     <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>PassWord</th>
-        <th>Semester</th>
+        <th>Menu</th>
+        <th>Rating</th>
+        <th>Review</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
     <c:forEach items="${list}" var="u">
         <tr>
-            <td>${u.getUserID()}</td>
-            <td>${u.getUserName()}</td>
-            <td>${u.getUserPW()}</td>
-            <td>${u.getUserSemester()}</td>
+            <td>${u.getCategory()}</td>
+            <td>${u.getRating()}</td>
+            <td>${u.getReview()}</td>
             <td><a href="editform/${u.getSeq()}">Edit</a></td>
             <td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
         </tr>

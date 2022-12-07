@@ -1,7 +1,7 @@
 package com.example.student.controller;
 
-import com.example.student.StudentServiceImpl;
-import com.example.student.bean.StudentVO;
+import com.example.student.MenuServiceImpl;
+import com.example.student.bean.MenuVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MenuController {
     @Autowired
-    StudentServiceImpl studentService;
+    MenuServiceImpl menuService;
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model){
-        model.addAttribute("list", studentService.getStudentList());
+        model.addAttribute("list", menuService.getMenuList());
         return "list";
     }
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String Studentlist(Model model){
-        model.addAttribute("list", studentService.getStudentList());
+    public String Menulist(Model model){
+        model.addAttribute("list", menuService.getMenuList());
         return "list";
     }
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -28,8 +28,8 @@ public class MenuController {
         return "add";
     }
     @RequestMapping(value = "/addok", method = RequestMethod.POST)
-    public String addPostOK(StudentVO vo){
-        int i = studentService.insertStudent(vo);
+    public String addPostOK(MenuVO vo){
+        int i = menuService.insertMenu(vo);
         if(i == 0){
             System.out.println("데이터 추가 실패");
         }
@@ -38,13 +38,13 @@ public class MenuController {
     }
     @RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
     public String editPost(@PathVariable("id") int id, Model model){
-        StudentVO studentVO = studentService.getStudent(id);
-        model.addAttribute("u", studentVO);
+        MenuVO menuVO = menuService.getMenu(id);
+        model.addAttribute("u", menuVO);
         return  "editform";
     }
     @RequestMapping(value = "/editok", method = RequestMethod.POST)
-    public String editPostOK(StudentVO vo){
-        int i = studentService.updateStudent(vo);
+    public String editPostOK(MenuVO vo){
+        int i = menuService.updateMenu(vo);
         if(i == 0){
             System.out.println("데이터 추가 실패");
         }
@@ -53,7 +53,7 @@ public class MenuController {
     }
     @RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
     public String deletePostOK(@PathVariable("id") int id){
-        int i = studentService.deleteStudent(id);
+        int i = menuService.deleteMenu(id);
         if(i == 0){
             System.out.println("데이터 추가 실패");
         }

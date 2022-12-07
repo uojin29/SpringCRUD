@@ -4,60 +4,43 @@ import com.example.student.StudentServiceImpl;
 import com.example.student.bean.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
+@RequestMapping(value="/login")
 public class StudentController {
     @Autowired
-    StudentServiceImpl studentService;
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model){
-        model.addAttribute("list", studentService.getStudentList());
-        return "list";
+    StudentServiceImpl service;
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
     }
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String Studentlist(Model model){
-        model.addAttribute("list", studentService.getStudentList());
-        return "list";
+
+    @RequestMapping(value="/loginOk",method=RequestMethod.POST)
+    public String loginCheck(HttpSession session, StudentVO vo){
+        String returnURL = "";
+        if (session.getAttribute("login") != null ){
+        session.removeAttribute("login");
     }
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addPost(){
-        return "add";
+    StudentVO loginvo = service.getStudent(vo);
+        if ( loginvo != null ){
+            // 로그인성공
+            System.out.println("로그인성공!");
+            session.setAttribute("login", loginvo);
+            returnURL = "redirect:/list";
+        }else {
+            // 로그인실패
+            System.out.println("로그인실패!");
+            returnURL = "redirect:/login/login";
+        }return returnURL;
     }
-    @RequestMapping(value = "/addok", method = RequestMethod.POST)
-    public String addPostOK(StudentVO vo){
-        int i = studentService.insertStudent(vo);
-        if(i == 0){
-            System.out.println("데이터 추가 실패");
-        }
-        else System.out.println("데이터 추가 성공");
-        return "redirect:list";
-    }
-    @RequestMapping(value = "/editform/{id}", method = RequestMethod.GET)
-    public String editPost(@PathVariable("id") int id, Model model){
-        StudentVO studentVO = studentService.getStudent(id);
-        model.addAttribute("u", studentVO);
-        return  "editform";
-    }
-    @RequestMapping(value = "/editok", method = RequestMethod.POST)
-    public String editPostOK(StudentVO vo){
-        int i = studentService.updateStudent(vo);
-        if(i == 0){
-            System.out.println("데이터 추가 실패");
-        }
-        else System.out.println("데이터 추가 성공");
-        return "redirect:list";
-    }
-    @RequestMapping(value = "/deleteok/{id}", method = RequestMethod.GET)
-    public String deletePostOK(@PathVariable("id") int id){
-        int i = studentService.deleteStudent(id);
-        if(i == 0){
-            System.out.println("데이터 추가 실패");
-        }
-        else System.out.println("데이터 추가 성공");
-        return "redirect:../list";
+    // 로그아웃하는부분
+    @RequestMapping(value="/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return"redirect:/login/login";
     }
 }

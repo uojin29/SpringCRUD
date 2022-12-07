@@ -2,6 +2,6 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias alias="student" type="com.example.student.bean.StudentVO"/>
+        <typeAlias alias="menu" type="com.example.student.bean.MenuVO"/>
     </typeAliases>
 </configuration>
