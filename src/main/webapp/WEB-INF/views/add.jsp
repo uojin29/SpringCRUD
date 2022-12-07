@@ -23,7 +23,7 @@
             <option value="간장불고기덮밥">간장불고기덮밥</option>
         </select></td></tr>
         <tr><td>Rating:</td><td><input type="text" name="rating"/></td></tr>
-        <tr><td>Review:</td><td><input type="text" name="review"/></td></tr>
+        <tr><td>Review:</td><td><textarea cols="50" rows="5" name="review"></textarea></td></tr>
     </table>
     <tr><td><a href="list">목록 보기</a></td>
         <br>

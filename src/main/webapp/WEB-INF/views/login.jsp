@@ -5,8 +5,7 @@
   Time: 10:55 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,7 +13,7 @@
     <style>
         img,label { display:inline-block;}
         label{ width:130px}
-        button{ background-color:blue; color:white;font-size:15px}
+        button{ background-color:lightblue; color:white;font-size:15px}
     </style>
 </head>
 <body>

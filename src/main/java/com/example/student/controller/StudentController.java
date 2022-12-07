@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 
 @Controller
 @RequestMapping(value="/login")
@@ -33,6 +35,7 @@ public class StudentController {
             returnURL = "redirect:/list";
         }else {
             // 로그인실패
+//            alert(returnURL, "로그인실패");
             System.out.println("로그인실패!");
             returnURL = "redirect:/login/login";
         }return returnURL;
@@ -42,5 +45,17 @@ public class StudentController {
     public String logout(HttpSession session) {
         session.invalidate();
         return"redirect:/login/login";
+    }
+
+    public static void alert(HttpServletResponse response, String msg) {
+        try {
+            response.setContentType("text/html; charset=utf-8");
+            PrintWriter w = response.getWriter();
+            w.write("<script>alert('"+msg+"');</script>");
+            w.flush();
+            w.close();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

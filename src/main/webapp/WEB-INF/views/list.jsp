@@ -24,7 +24,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: center;
-            background-color: #006bb3;
+            background-color: lightblue;
             color: white;
         }
     </style>
@@ -36,7 +36,7 @@
     </script>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1>라운지 메뉴 리뷰</h1>
 <table id="list" width="90%">
     <tr>
         <th>Menu</th>
@@ -55,6 +55,7 @@
         </tr>
     </c:forEach>
 </table>
-<br/><button type="button" onclick="location.href='add'">New Student</button>
+<br/><button type="button" onclick="location.href='add'">New Review</button>
+<%--<br/><button type="logout" onclick="location.href='add'">Logout</button>--%>
 </body>
 </html>
