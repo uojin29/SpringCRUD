@@ -22,12 +22,12 @@
     <form method="post" action="loginOk">
         <div><label>User ID: </label>
             <input type='text'name='userID'/></div>
-        <div><label>User Name: </label>
-            <input type='text'name='userName'/></div>
+<%--        <div><label>User Name: </label>--%>
+<%--            <input type='text'name='userName'/></div>--%>
         <div><label>Password: </label>
             <input type='password' name='userPW'/></div>
-        <div><label>Semester: </label>
-            <input type='int' name='userSemester'/></div>
+<%--        <div><label>Semester: </label>--%>
+<%--            <input type='int' name='userSemester'/></div>--%>
         <button type='submit'>login</button>
     </form>
 </div>

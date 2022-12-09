@@ -3,7 +3,7 @@
 <mapper namespace="Student">
 
     <select id="getStudent" resultType= "com.example.student.bean.StudentVO">
-        select userID, userName, userPW, userSemester from STUDENT
+        select userID, userPW from STUDENT
         where userID=#{userID} and
         userPW=#{userPW}
     </select>
