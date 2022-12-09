@@ -56,6 +56,6 @@
     </c:forEach>
 </table>
 <br/><button type="button" onclick="location.href='add'">New Review</button>
-<%--<br/><button type="logout" onclick="location.href='add'">Logout</button>--%>
+<button type="logout" onclick="location.href='login/logout'">Logout</button>
 </body>
 </html>

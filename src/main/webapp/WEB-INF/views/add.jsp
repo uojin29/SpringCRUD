@@ -22,6 +22,7 @@
             <option value="치즈부대찌개">치즈부대찌개</option>
             <option value="간장불고기덮밥">간장불고기덮밥</option>
         </select></td></tr>
+<%--        라디오 버튼으로 입력받기--%>
         <tr><td>Rating:</td><td><input type="text" name="rating"/></td></tr>
         <tr><td>Review:</td><td><textarea cols="50" rows="5" name="review"></textarea></td></tr>
     </table>
