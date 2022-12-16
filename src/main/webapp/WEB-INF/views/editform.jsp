@@ -27,7 +27,7 @@
         </form:select>
         </td></tr>
         <tr><td>Rating:</td><td><form:input path="rating"/></td></tr>
-        <tr><td>Review:</td><td><form:textarea cols="50" rows="5" path="review"/></td></tr>
+        <tr><td>Review:</td><td><form:textarea cols="50" rows="5" path="content"/></td></tr>
         <tr><td colspan="2"><input type="submit" value="Edit Post"/>
             <input type="button" value="Cancel" onclick="history.back()"/></td></tr>
     </table>

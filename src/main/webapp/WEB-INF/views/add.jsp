@@ -24,7 +24,7 @@
         </select></td></tr>
 <%--        라디오 버튼으로 입력받기--%>
         <tr><td>Rating:</td><td><input type="text" name="rating"/></td></tr>
-        <tr><td>Review:</td><td><textarea cols="50" rows="5" name="review"></textarea></td></tr>
+        <tr><td>Review:</td><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>
     </table>
     <tr><td><a href="list">목록 보기</a></td>
         <br>

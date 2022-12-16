@@ -1,9 +1,9 @@
 package com.example.student.bean;
 
-public class MenuVO {
+public class ReviewVO {
     private int seq;
     private int rating;
-    private String review;
+    private String content;
     private String category;
 
     public int getSeq() {
@@ -22,12 +22,12 @@ public class MenuVO {
         this.rating = rating;
     }
 
-    public String getReview() {
-        return review;
+    public String getContent() {
+        return content;
     }
 
-    public void setReview(String review) {
-        this.review = review;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getCategory() {

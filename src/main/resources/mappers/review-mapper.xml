@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Review">
+    <insert id="insertReview">
+        insert into Review (rating, content, category)
+        values (#{rating} , #{content}, #{category})
+    </insert>
+    <update id="updateReview">
+        update Review
+        set rating=#{rating}, content=#{content}, category=#{category}
+        where seq=#{seq}
+    </update>
+    <delete id="deleteReview">
+        delete from Review
+        where seq=#{seq}
+    </delete>
+    <select id="getReview" resultType="review">
+        select * from Review
+        where seq=#{seq}
+    </select>
+    <select id="getReviewList" resultType="review">
+        select * from Review order by seq desc
+    </select>
+</mapper>

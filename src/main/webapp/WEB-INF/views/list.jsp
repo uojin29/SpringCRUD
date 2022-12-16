@@ -49,7 +49,7 @@
         <tr>
             <td>${u.getCategory()}</td>
             <td>${u.getRating()}</td>
-            <td>${u.getReview()}</td>
+            <td>${u.getContent()}</td>
             <td><a href="editform/${u.getSeq()}">Edit</a></td>
             <td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
         </tr>
