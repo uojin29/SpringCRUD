@@ -8,7 +8,7 @@ public class ReviewVO {
     private String content;
     private String category;
 
-    private String photo;
+    private String recommendation;
     private Date editdate;
     private int semester;
     private String name;
@@ -45,12 +45,12 @@ public class ReviewVO {
     public void setCategory(String category) {
         this.category = category;
     }
-    public String getPhoto() {
-        return photo;
+    public String getRecommendation() {
+        return recommendation;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setRecommendation(String recommendation) {
+        this.recommendation = recommendation;
     }
 
     public Date getEditdate() {

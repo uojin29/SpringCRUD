@@ -1,11 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Insert title here</title>
+    <style>
+
+    </style>
 </head>
+<script type="text/javascript">
+    function clickCheck(chk){
+        var obj = document.getElementsByName("rec");
+        for(var i=0; i<obj.length; i++){
+            if(obj[i] != chk){
+                obj[i].checked = false;
+            }
+        }
+    }
+</script>
 <body>
 
 <h1>Add New Post</h1>
@@ -30,10 +44,15 @@
             <input type="radio" id="rating4" name="rating" value="4"> 4
             <input type="radio" id="rating15" name="rating" value="5"> 5
         </td></tr>
-        <tr><td>Photo:</td><td><input type="file" name="photo"/></td></tr>
         <tr><td>Semester:</td><td><input type="text" name="semester"/></td></tr>
         <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
         <tr><td>Review:</td><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>
+        <tr><td>Recommendation:</td>
+            <td>
+                <input name="rec" type="checkbox" value="1" onclick="clickCheck(this);">추천!
+                <input name="rec" type="checkbox" value="2" onclick="clickCheck(this);">추천 X!
+            </td>
+        </tr>
     </table>
     <tr><td><a href="list">목록 보기</a></td>
         <br>

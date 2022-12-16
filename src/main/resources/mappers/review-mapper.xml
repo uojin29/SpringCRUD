@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Review">
     <insert id="insertReview">
-        insert into Review (rating, content, category, photo, semester, name)
-        values (#{rating} , #{content}, #{category}, #{photo}, #{semester}, #{name})
+        insert into Review (rating, content, category, recommendation, semester, name)
+        values (#{rating} , #{content}, #{category}, #{recommendation}, #{semester}, #{name})
     </insert>
     <update id="updateReview">
         update Review
-        set rating=#{rating}, content=#{content}, category=#{category}, photo=#{photo}, semester=#{semester}, name=#{name}
+        set rating=#{rating}, content=#{content}, category=#{category}, recommendation=#{recommendation}, semester=#{semester}, name=#{name}
         where seq=#{seq}
     </update>
     <delete id="deleteReview">

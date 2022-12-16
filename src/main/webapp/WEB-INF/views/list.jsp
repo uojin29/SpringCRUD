@@ -41,10 +41,10 @@
     <tr>
         <th>Menu</th>
         <th>Rating</th>
-        <th>Photo</th>
         <th>Review</th>
         <th>Semester</th>
         <th>Name</th>
+        <th>Recommendation</th>
         <th>Edit</th>
         <th>Edit-date</th>
         <th>Delete</th>
@@ -53,10 +53,10 @@
         <tr>
             <td>${u.getCategory()}</td>
             <td>${u.getRating()}</td>
-            <td><img src="${pageContext.request.contextPath }/upload/${u.getPhoto()}" class="photo" width="150px" height="100px"></td>
             <td>${u.getContent()}</td>
             <td>${u.getSemester()}</td>
             <td>${u.getName()}</td>
+            <td>${u.getRecommendation()}</td>
             <td><a href="editform/${u.getSeq()}">Edit</a></td>
             <td>${u.getEditdate()}</td>
             <td><a href="javascript:delete_ok('${u.seq}')">Delete</a></td>
