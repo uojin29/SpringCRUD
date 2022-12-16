@@ -37,8 +37,8 @@
         <tr><td>Semester:</td><td><form:input path="semester"/></td></tr>
         <tr><td>Review:</td><td><form:textarea cols="50" rows="5" path="content"/></td></tr>
         <tr><td>Recommendation:</td><td>
-            <form:checkbox path="rating" value="1" label="추천!"/>
-            <form:checkbox path="rating" value="2" label="추천 X!"/>
+            <ㄱ path="recommendation" value="추천!" label="추천!"/>
+            <form:checkbox path="recommendation" value="추천 X!" label="추천 X!"/>
         </td></tr>
         <tr><td colspan="2"><input type="submit" value="Edit Post"/>
             <input type="button" value="Cancel" onclick="history.back()"/></td></tr>

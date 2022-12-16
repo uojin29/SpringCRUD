@@ -12,7 +12,7 @@
 </head>
 <script type="text/javascript">
     function clickCheck(chk){
-        var obj = document.getElementsByName("rec");
+        var obj = document.getElementsByName("recommendation");
         for(var i=0; i<obj.length; i++){
             if(obj[i] != chk){
                 obj[i].checked = false;
@@ -49,8 +49,8 @@
         <tr><td>Review:</td><td><textarea cols="50" rows="5" name="content"></textarea></td></tr>
         <tr><td>Recommendation:</td>
             <td>
-                <input name="rec" type="checkbox" value="1" onclick="clickCheck(this);">추천!
-                <input name="rec" type="checkbox" value="2" onclick="clickCheck(this);">추천 X!
+                <input name="recommendation" type="checkbox" value="추천!" onclick="clickCheck(this);">추천!
+                <input name="recommendation" type="checkbox" value="추천 X!" onclick="clickCheck(this);">추천 X!
             </td>
         </tr>
     </table>
