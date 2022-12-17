@@ -14,7 +14,7 @@
 <div class="w3-content w3-margin-top" style="max-width:1400px;">
     <div class="banner">
         <div class="navbar w3-white w3-wide w3-padding w3-card-4 w3-round-xlarge">
-            <a href="#" onclick="location.href='list'" class="w3-tag w3-button w3-hover-none w3-white w3-xlarge w3-hover-text-blue w3-round-large" style="font-weight: bold;">
+            <a href="#" onclick="location.href='../list'" class="w3-tag w3-button w3-hover-none w3-white w3-xlarge w3-hover-text-blue w3-round-large" style="font-weight: bold;">
                 한동 라운지 메뉴 리뷰</a>
         </div>
     </div>
